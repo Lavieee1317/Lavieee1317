@@ -8,13 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: generate-github-profile-summary-cards
+
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate GitHub Profile Summary Cards
-        uses: vn7n24fzkq/github-profile-summary-cards@release
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           USERNAME: Lavieee1317
+          BRANCH_NAME: main
+          UTC_OFFSET: 5.5
+          AUTO_PUSH: true
